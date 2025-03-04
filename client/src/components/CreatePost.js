@@ -3,19 +3,39 @@ import axios from "axios";
 import "../styles/CreatePost.css";
 
 function CreatePost({ onPostCreated }) {
-  const [image, setImage] = useState("");
+  const [imageURL, setImageURL] = useState("");
   const [caption, setCaption] = useState("");
+  const [previewImage, setPreviewImage] = useState(null);
+
+  const handleImageChange = (e) => {
+    const url = e.target.value;
+    setImageURL(url);
+
+    if (url) {
+      setPreviewImage(url);
+    } else {
+      setPreviewImage(null);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!imageURL || !caption) {
+      alert("Please provide both an image URL and a caption.");
+      return;
+    }
+
     try {
       const response = await axios.post("http://localhost:5000/api/posts", {
-        image,
+        image: imageURL,
         caption,
       });
+
       onPostCreated(response.data);
-      setImage("");
+      setImageURL("");
       setCaption("");
+      setPreviewImage(null);
     } catch (error) {
       console.error("Error creating post:", error);
     }
@@ -26,8 +46,8 @@ function CreatePost({ onPostCreated }) {
       <input
         type="text"
         placeholder="Image URL"
-        value={image}
-        onChange={(e) => setImage(e.target.value)}
+        value={imageURL}
+        onChange={handleImageChange}
         required
       />
       <textarea
@@ -36,6 +56,13 @@ function CreatePost({ onPostCreated }) {
         onChange={(e) => setCaption(e.target.value)}
         required
       ></textarea>
+
+      {previewImage && (
+        <div className="image-preview">
+          <img src={previewImage} alt="Preview" />
+        </div>
+      )}
+
       <button type="submit">Create Post</button>
     </form>
   );
