@@ -25,7 +25,7 @@ cd server
 npm install
 ```
 
-### 3. Create a .env file in the server directory with the following variables
+### 3. Create a `.env` file in the `server` directory with the following variables
 
 ```bash
 PORT=5000
