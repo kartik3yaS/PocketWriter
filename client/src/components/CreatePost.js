@@ -13,7 +13,7 @@ function CreatePost({ onPostCreated }) {
         image,
         caption,
       });
-      onPostCreated(response.data); // Add the newly created post to the feed
+      onPostCreated(response.data);
       setImage("");
       setCaption("");
     } catch (error) {

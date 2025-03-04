@@ -7,7 +7,6 @@ import Feed from "./components/Feed";
 function App() {
   const [posts, setPosts] = useState([]);
 
-  // Fetch posts when the app loads
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -21,7 +20,6 @@ function App() {
     fetchPosts();
   }, []);
 
-  // Add a new post to state after creation
   const addPost = (newPost) => {
     setPosts([newPost, ...posts]);
   };

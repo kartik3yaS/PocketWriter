@@ -16,7 +16,7 @@ const {
 router.get("/", getPosts);
 router.post("/", createPost);
 router.delete("/:id", deletePost);
-router.post("/:id/toggle-like", likePost);
+router.patch("/:id/toggle-like", likePost);
 router.get("/:id/comments", getComments);
 router.post("/:id/comments", createComments);
 

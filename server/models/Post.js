@@ -7,7 +7,7 @@ const postSchema = new mongoose.Schema(
     likes: { type: Number, default: 0 },
     isLiked: { type: Boolean, default: false },
   },
-  { timestamps: true } // Automatically adds createdAt and updatedAt fields
+  { timestamps: true }
 );
 
 module.exports = mongoose.model("Post", postSchema);

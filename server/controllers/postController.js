@@ -2,7 +2,7 @@ const Post = require("../models/Post");
 
 exports.getPosts = async (req, res) => {
   try {
-    const posts = await Post.find().sort({ createdAt: -1 }); // Sort by createdAt in descending order
+    const posts = await Post.find().sort({ createdAt: -1 });
     res.json(posts);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -38,17 +38,16 @@ exports.likePost = async (req, res) => {
     const post = await Post.findById(req.params.id);
     if (!post) return res.status(404).json({ message: "Post not found" });
 
-    // Toggle like state
     if (post.isLiked) {
-      post.likes -= 1; // Decrement likes
-      post.isLiked = false; // Mark as unliked
+      post.likes -= 1;
+      post.isLiked = false;
     } else {
-      post.likes += 1; // Increment likes
-      post.isLiked = true; // Mark as liked
+      post.likes += 1;
+      post.isLiked = true;
     }
 
     const updatedPost = await post.save();
-    res.json(updatedPost); // Return updated post with new like count
+    res.json(updatedPost);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

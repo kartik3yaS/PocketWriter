@@ -3,9 +3,8 @@ import Post from "./Post";
 import "../styles/Feed.css";
 
 function Feed({ posts, setPosts }) {
-  // Function to remove a deleted post from state
   const handleDeletePost = (postId) => {
-    setPosts(posts.filter((post) => post._id !== postId)); // Remove deleted post
+    setPosts(posts.filter((post) => post._id !== postId));
   };
 
   return (
@@ -21,8 +20,8 @@ function Feed({ posts, setPosts }) {
             caption={post.caption}
             likes={post.likes}
             isLiked={post.isLiked}
-            createdAt={post.createdAt} // Pass createdAt to Post component
-            onDelete={handleDeletePost} // Pass delete handler to Post component
+            createdAt={post.createdAt}
+            onDelete={handleDeletePost}
           />
         ))
       )}
