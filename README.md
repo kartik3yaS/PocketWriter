@@ -49,8 +49,21 @@ cd client
 npm start
 ```
 
-### 5. Localhost URL
+### 5. Localhost URL (Open it in the browser)
 
 ```bash
 http://localhost:3000
 ```
+
+## Technologies Used
+
+### Frontend
+- **React.js**
+- **CSS**
+
+### Backend
+- **Node.js**
+- **Express.js**
+
+### Database
+- **MongoDB**
