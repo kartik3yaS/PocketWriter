@@ -42,7 +42,7 @@ cd server
 npm run dev
 ```
 
-#### Frontend(In diffrenet powershell)
+#### Frontend (Run in a Separate Terminal)
 
 ```bash
 cd client
