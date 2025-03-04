@@ -42,10 +42,9 @@ cd server
 npm run dev
 ```
 
-#### Frontend
+#### Frontend(In diffrenet powershell)
 
 ```bash
-cd..
 cd client
 npm start
 ```
