@@ -20,7 +20,7 @@ npm install
 #### Backend
 
 ```bash
-cd..
+cd ..
 cd server
 npm install
 ```
@@ -37,7 +37,7 @@ MONGO_URI=mongodb+srv://PocketWriter:LavVuWpUisSKfKrj@cluster0.lnvzawa.mongodb.n
 #### Backend
 
 ```bash
-cd..
+cd ..
 cd server
 npm run dev
 ```
